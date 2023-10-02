@@ -16,7 +16,7 @@ const SearchBar = ({ onSearch, onClear }) => {
 
   const handleClear = () => {
     setQuery("");
-    onClear(); // Call the onClear function to load local images
+    onClear();
   };
 
   return (
@@ -30,7 +30,7 @@ const SearchBar = ({ onSearch, onClear }) => {
           onChange={handleInputChange}
           onKeyPress={handleKeyPress}
         />
-        <BiSearch className="absolute left-3 top-3 text-gray-500 text-2xl"  />
+        <BiSearch className="absolute left-3 top-3 text-gray-500 text-2xl" />
         {query && (
           <button
             className="absolute right-2  top-2 text-gray-500 hover:text-gray-800 transition-colors"

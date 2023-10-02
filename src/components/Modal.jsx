@@ -7,11 +7,7 @@ const Modal = ({ imageUrl, onClose }) => {
       <div className="fixed inset-0 bg-black opacity-70 transition-opacity ease-in-out duration-300"></div>
       <div className="relative max-w-xl bg-white  rounded-lg shadow-lg overflow-hidden transition-opacity ease-in-out duration-300 transform translate-y-0 opacity-100">
         <div className="max-h-full overflow-auto">
-          <img
-            src={imageUrl}
-            alt="Image"
-            className="w-full max-h-96" // Adjust the max height as needed
-          />
+          <img src={imageUrl} alt="Image" className="w-full max-h-96" />
         </div>
         <button
           onClick={onClose}

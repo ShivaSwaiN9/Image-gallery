@@ -31,7 +31,6 @@ const Gallery = () => {
           download_url: result.urls.regular,
         }));
 
-        // If it's the first page of results, set the new images, otherwise append them
         if (page === 1) {
           setImages(newImages);
         } else {
@@ -40,7 +39,6 @@ const Gallery = () => {
 
         setPage(page + 1);
       } else {
-        // Load more local images
         setImages((prevImages) => [
           ...prevImages,
           ...imageList.slice(page * 16, (page + 1) * 16),
@@ -67,7 +65,7 @@ const Gallery = () => {
   const handleSearch = async (query) => {
     try {
       setQuery(query);
-      setPage(1); // Reset the page to 1
+      setPage(1);
       if (query) {
         const response = await axios.get(
           `https://api.unsplash.com/search/photos/?client_id=m_H-vfexYH2g4aHl5gYT1GFi_ekIim2pdEQ5RwAb1EQ&query=${query}&per_page=12&page=${1}`
@@ -77,9 +75,8 @@ const Gallery = () => {
           author: result.user.name,
           download_url: result.urls.regular,
         }));
-        setImages(newImages); // Set the new search results
+        setImages(newImages);
       } else {
-        // Show local images again
         loadLocalImages();
       }
     } catch (error) {
@@ -88,7 +85,6 @@ const Gallery = () => {
   };
 
   const handleHomeClick = () => {
-    // Reset the query to an empty string and fetch the initial local images
     setQuery("");
     loadLocalImages();
     setPage(1);
